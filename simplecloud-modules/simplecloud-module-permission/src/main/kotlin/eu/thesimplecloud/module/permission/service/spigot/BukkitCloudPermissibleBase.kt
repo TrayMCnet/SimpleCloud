@@ -44,8 +44,6 @@ class BukkitCloudPermissibleBase(private val player: Player) : PermissibleBase(p
         if (inName.equals("bukkit.broadcast.user", ignoreCase = true)) {
             return true
         }
-        if (getPermissionPlayer() == null)
-            println("WARNING: PermissionPlayer of " + player.uniqueId + " is null.")
 
         return getPermissionPlayer()?.hasPermission(inName) ?: false
     }

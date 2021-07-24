@@ -35,10 +35,8 @@ class BungeeListener : Listener {
         val sender = event.sender
         if (sender is ProxiedPlayer) {
             val permissionPlayer = PermissionPool.instance.getPermissionPlayerManager().getCachedPermissionPlayer(sender.uniqueId)
-            if (permissionPlayer == null) {
-                println("WARNING: PermissionPlayer is NULL (${sender.name})")
+            if (permissionPlayer == null)
                 return
-            }
             event.setHasPermission(permissionPlayer.hasPermission(event.permission))
         }
     }
